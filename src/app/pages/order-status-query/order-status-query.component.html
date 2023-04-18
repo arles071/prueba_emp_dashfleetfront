@@ -1,0 +1,35 @@
+<div class="container mt-5">
+    <div class="card p-3 bg-info text-center">
+      <form [formGroup]="formOrder" (ngSubmit)="submit()">
+        <div class="mb-3">
+          <label for="order_code" class="form-label">Codigo pedido</label>
+          <input type="number" class="form-control" id="order_code" formControlName="order_code" required>
+          <div id="order_code_help" class="form-text d-none">Codigo es requerido.</div>
+          
+        </div>
+        <div class="mb-3">
+          <label for="document_type" class="form-label">Tipo documento</label>
+          <select name="document_type" id="document_type" class="form-control" formControlName="document_type" required>
+            <option value="CC">CC</option>
+            <option value="TI">TI</option>
+          </select>
+          <div id="document_type_help" class="form-text d-none">Tipo documento es requerido.</div>
+        </div>
+        <div class="mb-3">
+            <label for="document" class="form-label">Documento</label>
+            <input type="number" class="form-control" id="document" formControlName="document" required>
+            <div id="document_help" class="form-text d-none">Documento es requerido.</div>
+        </div>
+
+        <div class="mb-3" *ngIf="error">
+          <div class="alert alert-danger" role="alert">
+            {{textError}}
+          </div>
+        </div>
+
+        <div>
+            <button type="submit" class="btn btn-primary btn-block">Consultar</button>
+        </div>
+    </form>
+    </div>
+</div>

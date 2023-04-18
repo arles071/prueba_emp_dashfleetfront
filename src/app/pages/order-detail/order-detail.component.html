@@ -1,0 +1,31 @@
+<div class="container mt-5">
+    <p>Codigo pedido <b>{{orders[0].order_code}}</b></p>
+    <p>Cliente <b>{{orders[0].name_customer}}</b></p>
+    <p>Dirección de entrega <b>{{orders[0].address}}</b></p>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nombre producto</th>
+                <th>Ref</th>
+                <th>Cantidad</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of orders[0].products">
+                <td>{{ item.name }}</td>
+                <td>{{ item.reference }}</td>
+                <td>{{ item.pivot.cuantity }}</td>
+            </tr>
+        </tbody>
+        
+    </table>
+    <p>Estado del pedido <b>{{orders[0].status}}</b></p>
+    <p>Fecha estimado de entrega <b>{{orders[0].delivery_date}}</b></p>
+
+    <div class="text-center">
+        <button class="btn btn-danger" routerLink="/completed-inquiry">Cerrar</button>
+    </div>
+    <div class="text-center mt-3">
+        <button class="btn btn-primary" routerLink="/">Nueva consulta</button>
+    </div>
+</div>
